@@ -11,8 +11,7 @@ while True:
         case "show":
             print(todos)
         case "edit":
-            todo_number = int(input("Select a todo to edit: "))
-            todo_number = todo_number - 1
+            todo_number = int(input("Select a todo to edit(1 - ...): ")) - 1
             new_todo = input("Enter a new todo: ")
             todos[todo_number] = new_todo
             print("New Todo Has Been Saved!")
