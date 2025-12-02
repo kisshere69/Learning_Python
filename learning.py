@@ -46,48 +46,50 @@ todo = input("Enter a todo: ") + "\n"
 file = open('todos.txt', 'r')
 todos = file.readlines()
 
-#Create a simple todo list: input, methods, match-case, while-loop, list, for-list, f-string, read/write files
+#Create a simple todo list: input, methods, match-case, while-loop, list, for-list, f-string, with as, read/write files
 while True:
-    user_action = input("Type add/show/replace/delete/exit: ")
-    user_action = user_action.strip()
+    user_action = input("Type add/show/replace/delete/exit: ").strip()
 
     match user_action:
         case "add":
             todo = input("Enter a todo: ") + "\n"
-
-            file = open('todos.txt', 'r')
-            todos = file.readlines()
-            file.close()
-
-            todos.append(todo)
-
-            file = open("todos.txt", "w")
-            file.writelines(todos)
-            file.close()
+            with open("todos.txt", "a") as file:
+                file.write(todo)
 
         case "show":
-            file = open("todos.txt", "r")
-            todos = file.readlines()
-            file.close()
+            with open("todos.txt", "r") as file:
+                todos = file.readlines()
 
-            for index, i in enumerate(todos):
-                print(f"{index + 1}.{i}")
+            for index, item in enumerate(todos):
+                print(f"{index + 1}. {item}", end="")
 
         case "replace":
-            todo_number = int(input("Select a todo to replace(1 - ...): ")) - 1
-            new_todo = input("Enter a new todo: ")
-            todos[todo_number] = new_todo
-            print("New Todo Has Been Saved!")
+            with open("todos.txt", "r") as file:
+                todos = file.readlines()
 
-        case 'delete':
-            todo_number = int(input("Select a todo to delete: ")) - 1
-            todos.pop(todo_number)
+            number = int(input("Select a todo to replace (1 - ...): ")) - 1
+            new_todo = input("Enter new todo: ") + "\n"
+
+            todos[number] = new_todo
+
+            with open("todos.txt", "w") as file:
+                file.writelines(todos)
+
+        case "delete":
+            with open("todos.txt", "r") as file:
+                todos = file.readlines()
+
+            number = int(input("Select a todo to delete: ")) - 1
+            todos.pop(number)
+
+            with open("todos.txt", "w") as file:
+                file.writelines(todos)
 
         case "exit":
             break
 
-        case user_error:
-            print("This is an invalid input. Try again.")
+        case _:
+            print("Invalid input.")
 
 #Define a tuple of color codes: tuples
 color_codes = ((1, 2, 3), (4, 5, 6), (7, 8, 9))
