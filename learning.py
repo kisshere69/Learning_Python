@@ -12,7 +12,7 @@ todos = []
 todo = input("Enter a todo: ")
 todos.append(todo)
 
-#Replace a symbol in a string: for-loop, list
+#Methods: replace(). Replace a symbol in a string: for-loop, list
 filenames = ["1. Raw Data.txt", "2. Reports.txt", "3. Presentation.txt"]
 for i in filenames:
     i = i.replace('.', ')', 1)
@@ -22,6 +22,16 @@ for i in filenames:
 todos = []
 todo_number = int(input("Select a todo to complete: ")) - 1
 todos.pop(todo_number)
+
+#Methods: sort() -ASC sorting (A-Z; 0-9)
+my_list = ["3", "2", "a", "4", "1", "c", "b", "d"]
+my_list.sort()
+print(my_list)
+
+#Methods: sort() -DESC sorting (A-Z; 0-9)
+my_list = ["3", "2", "a", "4", "1", "c", "b", "d"]
+my_list.sort(reverse=True)
+print(my_list)
 
 #Create a simple todo list: input, methods, match-case, while-loop, list, for-list, f-string
 todos = []
