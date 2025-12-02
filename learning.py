@@ -33,18 +33,37 @@ my_list = ["3", "2", "a", "4", "1", "c", "b", "d"]
 my_list.sort(reverse=True)
 print(my_list)
 
-#Create a simple todo list: input, methods, match-case, while-loop, list, for-list, f-string
+#Methods and functions: open(), writelines(). Read and write files
 todos = []
 
+todo = input("Enter a todo: ") + "\n"
+todos.append(todo)
+
+file = open('todos.txt', 'w')
+file.writelines(todos)
+
+todo = input("Enter a todo: ") + "\n"
+file = open('todos.txt', 'r')
+todos = file.readlines()
+
+#Create a simple todo list: input, methods, match-case, while-loop, list, for-list, f-string, read/write files
 while True:
-    user_action = input("Type add/show/replace/complete/exit: ")
+    user_action = input("Type add/show/replace/delete/exit: ")
     user_action = user_action.strip()
 
     match user_action:
         case "add":
-            todo = input("Enter a todo: ")
-            print("Saved")
+            todo = input("Enter a todo: ") + "\n"
+
+            file = open('todos.txt', 'r')
+            todos = file.readlines()
+            file.close()
+
             todos.append(todo)
+
+            file = open("todos.txt", "w")
+            file.writelines(todos)
+            file.close()
         case "show":
             for index, i in enumerate(todos):
                 print(f"{index + 1}.{i}")
@@ -53,8 +72,8 @@ while True:
             new_todo = input("Enter a new todo: ")
             todos[todo_number] = new_todo
             print("New Todo Has Been Saved!")
-        case 'complete':
-            todo_number = int(input("Select a todo to complete: ")) - 1
+        case 'delete':
+            todo_number = int(input("Select a todo to delete: ")) - 1
             todos.pop(todo_number)
         case "exit":
             break
