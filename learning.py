@@ -33,7 +33,7 @@ my_list = ["3", "2", "a", "4", "1", "c", "b", "d"]
 my_list.sort(reverse=True)
 print(my_list)
 
-#Methods and functions: open(), writelines(). Read and write files
+#Methods and functions: open(), writelines(), readlines(). Read and write files
 todos = []
 
 todo = input("Enter a todo: ") + "\n"
@@ -64,19 +64,28 @@ while True:
             file = open("todos.txt", "w")
             file.writelines(todos)
             file.close()
+
         case "show":
+            file = open("todos.txt", "r")
+            todos = file.readlines()
+            file.close()
+
             for index, i in enumerate(todos):
                 print(f"{index + 1}.{i}")
+
         case "replace":
             todo_number = int(input("Select a todo to replace(1 - ...): ")) - 1
             new_todo = input("Enter a new todo: ")
             todos[todo_number] = new_todo
             print("New Todo Has Been Saved!")
+
         case 'delete':
             todo_number = int(input("Select a todo to delete: ")) - 1
             todos.pop(todo_number)
+
         case "exit":
             break
+
         case user_error:
             print("This is an invalid input. Try again.")
 
