@@ -1,4 +1,4 @@
-#Methods: enumerate(), capitalize(), title()
+#Methods:enumerate(), capitalize(), title()
 waiting_list = ["sen", "ben", "john"]
 for index, i in enumerate(waiting_list):
     print(index + 1, i.capitalize())
