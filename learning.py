@@ -59,7 +59,7 @@ filenames = ['document', 'report', 'presentation']
 for index, i in enumerate(filenames):
     print(f"{index}-{i.capitalize()}.txt")
 
-#Check the length of a list, for-loop and of a string
+#Check the length of a list, of a for-loop and of a string
 todos = [1,2,3]
 print("Length is:",len(todos))
 
