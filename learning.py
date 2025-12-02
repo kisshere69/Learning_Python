@@ -4,8 +4,8 @@ for index, i in enumerate(waiting_list):
     print(index + 1, i.capitalize())
 
 names = ["sen jackson", "ben alderson", "john star"]
-for name in names:
-    print(name.title())
+for index, i in enumerate(names):
+    print(f"{index + 1}.{i.title()}")
 
 #Methods: append(), replace(), pop()
 todos = []
