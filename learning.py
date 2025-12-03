@@ -72,7 +72,7 @@ while True:
 
             #print out the numbered items from the file
             for index, item in enumerate(todos):
-                print(f"{index + 1}. {item}", end="")
+                print(f"{index + 1}. {item}")
 
         case "replace":
             #open a file
@@ -81,8 +81,10 @@ while True:
 
             #expecet the user to enter the index value
             number = int(input("Select a todo to replace (1 - ...): ")) - 1
+
             #expect the user to enter a string for replacement
             new_todo = input("Enter new todo: ") + "\n"
+
             #save the new string in the same place (index)
             todos[number] = new_todo
             print("New Todo Has Been Saved!")
@@ -195,3 +197,19 @@ numbers = [1,2,4,6,10]
 squared = [x*x for x in numbers]
 
 print(squared)
+
+#create a program that operates over each element in the list and
+#creates the file with the element name + .txt and writes the content as an element name
+languages = ['English', 'German', 'Spanish']
+
+for i in languages:
+    with open(f"{i}.txt", "w") as file:
+        file.write(i)
+
+#create a program that reads one file and copies its content into another
+with open('story.txt', 'r') as file:
+    content = file.read()
+
+with open('story_copy.txt', 'w') as file:
+    file.write(content)
+    print(file.read())
