@@ -18,6 +18,11 @@ for i in filenames:
     i = i.replace('.', ')', 1)
     print(i)
 
+filenames = ["1.doc", "1.report", "1.presentation"]
+
+filenames = [filename.replace('.', '-') + ".txt" for filename in filenames]
+print(filenames)
+
 #Methods: delete a string by using pop()
 todos = []
 todo_number = int(input("Select a todo to complete: ")) - 1
@@ -48,31 +53,41 @@ todos = file.readlines()
 
 #Create a simple todo list: input, methods, match-case, while-loop, list, for-list, f-string, with as, read/write files
 while True:
+    #expect the user enter one of the actions
     user_action = input("Type add/show/replace/delete/exit: ").strip()
 
+    #check the action. match if success, print out the error if wrong input
     match user_action:
         case "add":
+            #expect the user enter a string
             todo = input("Enter a todo: ") + "\n"
+            #open a file where this string will be stored and append the string to the end.
             with open("todos.txt", "a") as file:
                 file.write(todo)
 
         case "show":
+            #open a file
             with open("todos.txt", "r") as file:
                 todos = file.readlines()
 
+            #print out the numbered items from the file
             for index, item in enumerate(todos):
                 print(f"{index + 1}. {item}", end="")
 
         case "replace":
+            #open a file
             with open("todos.txt", "r") as file:
                 todos = file.readlines()
 
+            #expecet the user to enter the index value
             number = int(input("Select a todo to replace (1 - ...): ")) - 1
+            #expect the user to enter a string for replacement
             new_todo = input("Enter new todo: ") + "\n"
-
+            #save the new string in the same place (index)
             todos[number] = new_todo
             print("New Todo Has Been Saved!")
 
+            #open a file and overwrite the string
             with open("todos.txt", "w") as file:
                 file.writelines(todos)
 
@@ -80,9 +95,12 @@ while True:
             with open("todos.txt", "r") as file:
                 todos = file.readlines()
 
+            #expect the integer for the index
             number = int(input("Select a todo to delete: ")) - 1
+            #delete the index by the entered number. number value = index in a string
             todos.pop(number)
 
+            #update the file
             with open("todos.txt", "w") as file:
                 file.writelines(todos)
 
@@ -141,3 +159,39 @@ for filename in zip(filenames):
     with open(f"{filename}", "r") as file:
         file = file.read()
         print(file)
+
+#List comprehension. Faster when the code is easy (1 condition, 1 operation)
+names = ["john smith", "jay santi", "eva kuki"]
+#create a new list and add the title() method for each loop iteration
+capitalized = [name.title() for name in names]
+print(capitalized)
+
+#calculate the length of each string by using len() method
+usernames = ["john 1990", "alberta1970", "magnola2000"]
+
+length = [len(username) for username in usernames]
+print(length)
+
+#convert the strings to floats by using float() method
+user_entries = ['10', '19.1', '20']
+
+ue_floats = [float(ue) for ue in user_entries]
+print(ue_floats)
+
+#convert
+numbers = [10, 20, 30]
+
+num = [int(n * 2) for n in numbers]
+print(num)
+
+#calculate sum of the elements in a list
+user_entries = ['10', '19.1', '20']
+
+res = sum([float(i) for i in user_entries])
+print(res)
+
+#calculate the square using list comprehension
+numbers = [1,2,4,6,10]
+squared = [x*x for x in numbers]
+
+print(squared)
