@@ -71,6 +71,7 @@ while True:
             new_todo = input("Enter new todo: ") + "\n"
 
             todos[number] = new_todo
+            print("New Todo Has Been Saved!")
 
             with open("todos.txt", "w") as file:
                 file.writelines(todos)
@@ -109,3 +110,34 @@ list(a)
 mylist = ['a', 'b', 'c', 'd']
 for i in mylist:
     print(len(mylist))
+
+with open("todos.txt", "r") as file:
+    file_content = file.readlines()
+
+for i in file_content:
+    print(f"The file contains {len(i)} characters.")
+
+#Create .txt files and populate them with info
+contents = ['All carrots are to be sliced'
+            'longitudinally.',
+            'The carrots were reportedly sliced.',
+            'The sliced carrots are to be reported.']
+
+filenames = ["doc.txt", "report.txt", "presentation.txt"]
+
+for content, filename in zip(contents, filenames):
+    with open(f"files/{filename}", "w") as file:
+        file.write(content)
+
+#Create a program that prompts a user to enter new member name
+new_member = input("Enter new member name: ") + "\n"
+with open("members.txt", "a") as file:
+    file.write(new_member)
+
+#Create a program that reads the content of files and prints it out
+filenames = ['doc.txt', 'report.txt', 'presentation.txt']
+
+for filename in zip(filenames):
+    with open(f"{filename}", "r") as file:
+        file = file.read()
+        print(file)
