@@ -2,10 +2,8 @@ while True:
     #expect the user enter one of the actions
     user_action = input("Type add/show/replace/delete/exit: ").strip()
 
-    #check the action. match if success, print out the error if wrong input
-
     if "add" in user_action:
-            #expect the user enters a string
+            #expect the user to enter add and todo
             todo = user_action[4:]
             #open a file where this string will be stored and append the string to the end.
             with open("files/todos.txt", "a") as file:
@@ -22,13 +20,12 @@ while True:
                 print(f"{index + 1}. {item.capitalize()}")
 
     elif "replace" in user_action:
+        #expect the user to enter replace and index value
         number = int(user_action[8:])
         number = int(number) - 1
         #open a file
         with open("files/todos.txt", "r") as file:
             todos = file.readlines()
-
-        #expecet the user to enter the index value
 
         #expect the user to enter a string for replacement
         new_todo = input("Enter new todo: ") + "\n"
@@ -42,6 +39,7 @@ while True:
             file.writelines(todos)
 
     elif "delete" in user_action:
+        #expect the user to enter delete and index value
         number = int(user_action[7:])
         number = int(number) - 1
         with open("files/todos.txt", "r") as file:
