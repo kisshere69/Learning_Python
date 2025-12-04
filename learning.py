@@ -217,3 +217,9 @@ with open('story_copy.txt', 'w') as file:
 #list slicing. start from index 4
 user_input = "add clean the room"
 print(user_input[4:])
+
+#create a dictionary with 3 float values
+day_temperatures = {'morning': 5.1, 'noon': 3.1, 'evening': 4.2}
+
+#create a dictionary of tuples with 3 float values
+day_temperatures = {'morning':(1.1, 2.2, 3.3), 'noon':(2.3, 2.4, 3.5), 'evening':(2.2,3.12, 4.12)}
