@@ -213,3 +213,7 @@ with open('story.txt', 'r') as file:
 with open('story_copy.txt', 'w') as file:
     file.write(content)
     print(file.read())
+
+#list slicing. start from index 4
+user_input = "add clean the room"
+print(user_input[4:])
