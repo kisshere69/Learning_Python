@@ -214,7 +214,7 @@ with open('story_copy.txt', 'w') as file:
     file.write(content)
     print(file.read())
 
-#Calculate the % of a number, and display an error if invalid input
+#Calculate the % and display an error if invalid input.
 try:
     total_value = float(input("Enter total value: "))
     value = float(input("Enter value: "))
