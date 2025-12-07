@@ -214,12 +214,31 @@ with open('story_copy.txt', 'w') as file:
     file.write(content)
     print(file.read())
 
-#Calculate the % and display an error if invalid input.
+#Calculate the % of a number, and display an error if invalid input
 try:
     total_value = float(input("Enter total value: "))
     value = float(input("Enter value: "))
     percentage = (value / total_value) * 100
-    print(f"{'That is'} {percentage}%")
+    print(f"That is {percentage}%")
 
 except ValueError:
     print("You need to enter a number. Run the program again.")
+except ZeroDivisionError:
+    print("Your total value cannot be zero.")
+
+#Print out the name of each file without an extension .txt
+filenames = ["report.txt", "downloads.txt", "success.txt", "folders.txt"]
+
+for i in filenames:
+    x = i[:-4]
+    print(x)
+
+#Print out an error if the input name is not in the waiting list. Check the name's index to see if a name exists.
+try:
+    waiting_list = ["john", "marry"]
+    name = input("Enter name: ")
+
+    number = waiting_list.index(name)
+    print(f"{name}'s turn is {number}")
+except ValueError:
+    print(name, "is not in the list of waiting list.")
