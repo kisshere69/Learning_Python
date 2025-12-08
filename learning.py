@@ -164,6 +164,7 @@ for filename in zip(filenames):
 
 #List comprehension. Faster when the code is easy (1 condition, 1 operation)
 names = ["john smith", "jay santi", "eva kuki"]
+
 #create a new list and add the title() method for each loop iteration
 capitalized = [name.title() for name in names]
 print(capitalized)
@@ -242,3 +243,11 @@ try:
     print(f"{name}'s turn is {number}")
 except ValueError:
     print(name, "is not in the list of waiting list.")
+
+#Create a function that prompts a user to enter a greeting
+def greet():
+    message = input("Enter a greeting: ").strip().title()
+    return message
+
+greeting = greet()
+print(f"User's greeting: {greeting}")
