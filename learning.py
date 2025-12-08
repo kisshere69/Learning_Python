@@ -164,8 +164,6 @@ for filename in zip(filenames):
 
 #List comprehension. Faster when the code is easy (1 condition, 1 operation)
 names = ["john smith", "jay santi", "eva kuki"]
-
-#create a new list and add the title() method for each loop iteration
 capitalized = [name.title() for name in names]
 print(capitalized)
 
@@ -251,3 +249,53 @@ def greet():
 
 greeting = greet()
 print(f"User's greeting: {greeting}")
+
+#Create a function that calculates the average temperature and prints it out with 2 decimal places
+try:
+    def get_avg_temperature():
+        with open('files_test/data.txt') as file:
+            temperatures = [float(line) for line in file]
+        return sum(temperatures) / len(temperatures)
+
+    avg = get_avg_temperature()
+    print(f'Average temperature: {avg:.2f}')
+
+except ValueError:
+    print(f"Invalid data in the file {__file__}\n!!!Please check the file and run the program again.")
+    exit()
+
+#Create a function that returns the maximum value from a list
+def get_max():
+    grades = [9.6, 9.2, 9.7]
+
+    max_value = max(grades)
+    return max_value
+
+print(get_max())
+
+#Create a function that returns the maximum and minimum values from a list
+def get_max():
+    grades = [9.6, 9.2, 9.7]
+    maximum = max(grades)
+    minimum = min(grades)
+    return maximum, minimum
+
+print(f"Max: {get_max()[0]}, Min: {get_max()[1]}")
+
+#Create a function that formats filenames
+def format_filename():
+    filename = ["report.txt", "downloads.txt", "success.txt", "folders.txt"]
+    alt_filename = [fname.capitalize()[:-4] for fname in filename]
+    return alt_filename
+
+print(format_filename())
+
+#Create a function that squares a number
+def square_number():
+    number = 5
+    result = pow(number, 2)
+
+    return result
+
+
+print(square_number())
