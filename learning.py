@@ -299,3 +299,26 @@ def square_number():
 
 
 print(square_number())
+
+#decoupling
+try:
+    feet_inches = float(input("Enter feet and inches(example: 5.10): "))
+except ValueError:
+    print(f"Invalid input. Please enter numeric values.")
+    exit()
+
+def convert(feet_inches_value):
+    parts = str(feet_inches_value).split(".")
+    feet = float(parts[0])
+    inches = float(parts[1])
+    meters = feet * 0.3048 + inches * 0.0254
+    return meters
+
+result = convert(feet_inches)
+
+#check if the height is less than 1 meter
+if result < 1:
+    print(f"{result:.2f} meters. The height is less than 1 meter.")
+else:
+    print(f"{result:.2f} meters.")
+
