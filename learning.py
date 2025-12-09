@@ -264,6 +264,18 @@ except ValueError:
     print(f"Invalid data in the file {__file__}\n!!!Please check the file and run the program again.")
     exit()
 
+#create a function to calculate the average from the list
+def avg_value(my_list):
+    return sum(my_list) / len(my_list)
+
+print(avg_value([10,20,30,40]))
+
+#create a function to calculate the speed
+def speed(distance, time):
+    return distance / time
+
+print(speed(200, 4))
+
 #Create a function that returns the maximum value from a list
 def get_max():
     grades = [9.6, 9.2, 9.7]
@@ -322,3 +334,50 @@ if result < 1:
 else:
     print(f"{result:.2f} meters.")
 
+
+# Define a function named strength that takes one parameter, password
+user_input = input("Enter a password: ").strip()
+
+def strength(password):
+    # Create an empty dictionary to store the strength attributes
+    result = {}
+
+    # Check the length of the password
+    if len(password) >= 8:
+        result["length"] = True
+    else:
+        result["length"] = False
+
+    # Check if the password contains a digit and an uppercase letter
+    digit = False
+    uppercase = False
+    lowercase = False
+
+    # Iterate over each character in the password
+    for i in password:
+        # Check if the character is a digit
+        if i.isdigit():
+            digit = True
+        # Check if the character is an uppercase letter
+        if i.isupper():
+            uppercase = True
+        # Check if the character is a lowercase letter
+        if i.islower():
+            lowercase = True
+
+    # Store the results in the dictionary
+    result["digits"] = digit
+    result["upper-case"] = uppercase
+    result["lower-case"] = lowercase
+
+    print(result)
+
+    # Check if all the strength attributes are True
+    if all(result.values()):
+        # Return "Strong Password" if all attributes are True
+        return "Strong Password"
+    else:
+        # Return "Weak Password" if any attribute is False
+        return "Weak Password"
+
+print(strength(user_input))
