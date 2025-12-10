@@ -312,27 +312,41 @@ def square_number():
 
 print(square_number())
 
-#decoupling
-try:
-    feet_inches = float(input("Enter feet and inches(example: 5.10): "))
-except ValueError:
-    print(f"Invalid input. Please enter numeric values.")
-    exit()
+#Decoupling
+feet_inches = input("Enter feet and inches(example: 4.2): ")
 
-def convert(feet_inches_value):
-    parts = str(feet_inches_value).split(".")
+#decouple the input into two parts
+def parse(feet_inches_local):
+    parts = feet_inches_local.split(".")
     feet = float(parts[0])
     inches = float(parts[1])
+    return feet, inches
+
+#convert the decoupled values to meters
+def convert(feet, inches):
     meters = feet * 0.3048 + inches * 0.0254
     return meters
 
-result = convert(feet_inches)
+#a cleaner version of the variable that stores the result of the parse function
+f, i = parse(feet_inches)
+print("intermediate result of a parse function:", f"feet is {f}, inches are {i}")
 
-#check if the height is less than 1 meter
-if result < 1:
-    print(f"{result:.2f} meters. The height is less than 1 meter.")
+result = convert(f, i)
+
+if result <= 1:
+    print(f"{result:.2f} meters. The height is less than 1 meter. You can't go jumping :(")
 else:
-    print(f"{result:.2f} meters.")
+    print(f"{result:.2f} meters. You can go jumping!")
+
+#create a function that decouples the string and prints out the number of words
+user_str = "john, alex, sam"
+
+def get_nr_items(user_input):
+    words = user_input.split(",")
+    return len(words)
+
+res = get_nr_items(user_str)
+print(res)
 
 
 # Define a function named strength that takes one parameter, password
@@ -381,3 +395,37 @@ def strength(password):
         return "Weak Password"
 
 print(strength(user_input))
+
+#Docstrings
+text = """
+Hello.
+My name is Nikita.
+It's really nice to meet you!
+I hope we will work together effectively
+"""
+print(text)
+
+#Importing functions
+"""
+import the functions get_todos and write_todos from an external file
+"""
+from todo_functions import get_todos, write_todos
+"""
+Or import functions. 
+But then, you would need to write functions.get_todos() 
+and functions.write_todos() 
+"""
+
+#Working within external files
+"""
+the below code is printed out only in "functions" file (external file)
+
+the rest (defined functions) is being executed 
+and printed out in the "app" file (internal file)
+"""
+if __name__ == "__main__":
+    print("Hello from the functions!")
+
+#importing functions from an external dir, file
+from files.parse_function import parse
+from files.convert_function import convert
