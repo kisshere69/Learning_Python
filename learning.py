@@ -428,13 +428,16 @@ if __name__ == "__main__":
 
 #importing functions from an external dir, file
 
-#Display the time, date, day, month, year
+#Display the time, date, day, month, year, time zone
 import time
+from datetime import datetime
 
 date = time.strftime("%B %d, %Y")
-print("Date: ",date)
+print("Date:", date)
 time = time.strftime("%H:%M:%S")
-print("Time: ", time)
+print("Time:", time)
+now = datetime.now().astimezone()
+print("Time zone(UTC):",now.tzinfo, now.utcoffset())
 
 #Access the contents of all .txt, .py... files
 import glob
