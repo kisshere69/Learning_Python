@@ -28,7 +28,7 @@ while True:
                 #append the string to the end of the list.
                 print(f"Todo '{todo.strip()}' has been added.")
                 todos.append(todo + "\n")
-                todo_functions.write_todos(todos, "files/todos.txt")
+                todo_functions.write_todos(todos, "todos.txt")
 
     elif user_action.startswith("show"):
             #open a file and read the content by line
@@ -51,7 +51,7 @@ while True:
             print("New Todo Has Been Saved!")
 
             #open a file and overwrite the string
-            todo_functions.write_todos(todos, "files/todos.txt")
+            todo_functions.write_todos(todos, "todos.txt")
 
         except ValueError:
             print("Invalid Input! Please try the command again.")
@@ -68,7 +68,7 @@ while True:
             print(f"Todo '{number}' has been deleted.")
 
         #update the file
-            todo_functions.write_todos(todos, "files/todos.txt")
+            todo_functions.write_todos(todos, "todos.txt")
 
         except IndexError:
             print("Invalid Input! The todo with this number does not exist.")
