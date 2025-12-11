@@ -1,25 +1,26 @@
-#Methods:enumerate(), capitalize(), title()
+#Methods: enumerate(), capitalize()
 waiting_list = ["sen", "ben", "john"]
 for index, i in enumerate(waiting_list):
     print(index + 1, i.capitalize())
 
+#Methods: enumerate(), title()
 names = ["sen jackson", "ben alderson", "john star"]
 for index, i in enumerate(names):
     print(f"{index + 1}.{i.title()}")
 
-#Methods: append(), replace(), pop()
+#Methods: append()
 todos = []
 todo = input("Enter a todo: ")
 todos.append(todo)
 
-#Methods: replace(). Replace a symbol in a string: for-loop, list
+#Methods: replace(). Replace a symbol in a string.
 filenames = ["1. Raw Data.txt", "2. Reports.txt", "3. Presentation.txt"]
 for i in filenames:
     i = i.replace('.', ')', 1)
     print(i)
 
+#Methods: replace() in a list comprehension
 filenames = ["1.doc", "1.report", "1.presentation"]
-
 filenames = [filename.replace('.', '-') + ".txt" for filename in filenames]
 print(filenames)
 
@@ -33,7 +34,7 @@ my_list = ["3", "2", "a", "4", "1", "c", "b", "d"]
 my_list.sort()
 print(my_list)
 
-#Methods: sort() -DESC sorting (A-Z; 0-9)
+#Methods: sort() -DESC sorting (Z-A; 9-0)
 my_list = ["3", "2", "a", "4", "1", "c", "b", "d"]
 my_list.sort(reverse=True)
 print(my_list)
@@ -409,7 +410,6 @@ print(text)
 """
 import the functions get_todos and write_todos from an external file
 """
-from todo_functions import get_todos, write_todos
 """
 Or import functions. 
 But then, you would need to write functions.get_todos() 
@@ -427,5 +427,47 @@ if __name__ == "__main__":
     print("Hello from the functions!")
 
 #importing functions from an external dir, file
-from files.parse_function import parse
-from files.convert_function import convert
+
+#Display the time, date, day, month, year
+import time
+
+date = time.strftime("%B %d, %Y")
+print("Date: ",date)
+time = time.strftime("%H:%M:%S")
+print("Time: ", time)
+
+#Access the contents of all .txt, .py... files
+import glob
+
+myfiles = glob.glob("files/*.txt")
+for filepath in myfiles:
+    with open(filepath, 'r') as file:
+        print(file.read())
+
+#Read the contents of the .csv file (files/sites.csv) and print it out
+import csv
+
+with open("read_csv/sites.csv") as csvfile:
+    data =list(csv.reader(csvfile))
+
+site = input("Site: ")
+print("Below is the info about site", site)
+
+site_info = data[0]
+print(site_info)
+
+for row in data:
+    if row[0] == site:
+        print(row[0:3])
+
+#Create the .zip file and read its contents
+import shutil
+
+shutil.make_archive("output", "zip", "journal")
+
+#Open the browser by the user's search input
+import webbrowser
+
+user_term = input("Enter the term: ")
+
+webbrowser.open("https://google.com/search?q=" + user_term)
