@@ -1,4 +1,14 @@
 import todo_functions
+import time
+from datetime import datetime
+
+date = time.strftime("%B %d, %Y")
+print("Date:", date)
+time = time.strftime("%H:%M:%S")
+print("Time:", time)
+now = datetime.now().astimezone()
+print("Time zone(UTC):",now.tzinfo, now.utcoffset())
+
 while True:
     #expect the user enter one of the actions
     user_action = input("Type add/show/replace/delete/exit: ").strip().lower()
