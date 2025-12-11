@@ -474,3 +474,25 @@ import webbrowser
 user_term = input("Enter the term: ")
 
 webbrowser.open("https://google.com/search?q=" + user_term)
+
+#Dictionary: Create a dictionary with students and their groups, and return it as Group: ['name']
+students = {
+    "Alice": "Group 1",
+    "Bob": "Group 2",
+    "Charlie": "Group 1",
+    "Diana": "Group 3"
+}
+
+groups = {}
+for name, grp in students.items():
+    groups.setdefault(grp, []).append(name)
+
+print(groups)
+
+#Transform JSON text into Python objects. Load strings
+import json
+
+with open("questions.json", "r") as json_file:
+    content = json_file.read()
+
+data = json.loads(content)
