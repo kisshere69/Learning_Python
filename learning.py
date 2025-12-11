@@ -489,7 +489,7 @@ for name, grp in students.items():
 
 print(groups)
 
-#Transform JSON text into Python objects. Load strings.
+#Transform JSON text into Python objects. Load strings
 import json
 
 with open("questions.json", "r") as json_file:
