@@ -1,6 +1,6 @@
 #importing functions from an external dir, file
-from files.parse_function import parse
-from files.convert_function import convert
+from files.parse import parse
+from files.convert import convert
 
 feet_inches = input("Enter feet and inches(example: 4.2): ")
 
