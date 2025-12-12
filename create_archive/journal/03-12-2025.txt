@@ -1,0 +1,1 @@
+7I started a new module on Udemy. Today I learnt: with-context manager, list-comprehensions. 
