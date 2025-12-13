@@ -1,0 +1,10 @@
+1. Read the CSV file
+2. Remove extra spaces
+3. Convert names to Title Case
+4. Delete the following lines:
+    - No name
+    - No salary
+    - No email
+5. Convert salary to a number
+6. Leave only employees with a salary >= 4000
+7. Save the result in clean_employees.json

@@ -1,0 +1,6 @@
+id,name,department,salary,email
+1, john smith , IT , 3000 , john@example.com
+2, Mary  Johnson,HR,  , mary@example.com
+3,alex brown, IT,4500,alex@example.com
+4, ,Finance,5000,finance@example.com
+5,linda green,HR,4200,
