@@ -1,0 +1,8 @@
+name,age,salary,department
+Alice,29,55000,IT
+Bob, ,48000,Sales
+Charlie,35,not available,Marketing
+Diana,42,62000,IT
+Evan,31,53000,Support
+    , 25, 43200, Data Analyst
+Nikita, 22, 50000, Data Engineering

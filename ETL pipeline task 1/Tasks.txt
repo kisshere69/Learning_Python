@@ -1,0 +1,16 @@
+PROGRAM #1: “ETL Pipeline: CSV Load → Clean → Transform → Save to JSON”
+
+1. Read CSV
+2. Remove empty lines
+3. Replace "not available" with None
+4. Convert age to a number
+5. Filter employees over 20
+6. Save the result as JSON
+
+-----Skills learned----
+
+Extract: Reading CSV using csv.DictReader()
+Transform: Data cleaning, data types, filtering
+Load: Saving JSON
+Data cleaning: Error handling, whitespace, and empty strings
+ETL: Serial pipeline
