@@ -1,0 +1,8 @@
+1. Download data from the API
+2. Select only completed tasks (completed == True)
+3. Save to CSV
+4. Load CSV into pandas
+5. Calculate statistics
+6. Save results to a SQLite database
+
+FREE API https://jsonplaceholder.typicode.com/todos
