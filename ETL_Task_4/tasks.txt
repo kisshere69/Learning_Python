@@ -1,0 +1,4 @@
+1. Read data from JSON.
+2. Filter users aged 18 or older.
+3. Add a new column, "full_name," as a concatenation of "first_name" + "last_name."
+4. Save the result as a CSV file.
