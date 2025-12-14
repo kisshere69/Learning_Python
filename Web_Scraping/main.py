@@ -1,5 +1,7 @@
 import requests
 import selectorlib
+import smtplib, ssl
+
 
 #Access the link as a legit user-agent
 url = "https://programmer100.pythonanywhere.com/tours/"
@@ -17,7 +19,20 @@ def extract(response):
     extractor = selectorlib.Extractor.from_yaml_file("extract.yaml").extract(response)["tours"]
     return extractor
 
-def send_email():
+def send_email(message):
+    host = "smtp.gmail.com"
+    port = 465
+
+    username = "kizzfromdahood@gmail.com"
+    password = "bikyrheswqbntxri"
+
+    receiver = "app8flask@gmail.com"
+
+    context = ssl.create_default_context()
+
+    with smtplib.SMTP_SSL(host, port, context=context) as server:
+        server.login(username, password)
+        server.sendmail(username, receiver, message)
     print("Email sent.")
 
 def write(extracted):
@@ -42,4 +57,4 @@ if extracted != "No upcoming tours":
     #---Check if data already exists. Send an email only if the data is new in the file--
     if extracted not in content:
         write(extracted)
-        send_email()
+        send_email(message = "New Event. Check it out!")
