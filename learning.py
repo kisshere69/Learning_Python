@@ -496,3 +496,68 @@ with open("questions.json", "r") as json_file:
     content = json_file.read()
 
 data = json.loads(content)
+
+#Regular expressions
+import re
+
+# Compile the pattern with re.IGNORECASE flag for case-insensitive matching
+pattern = re.compile(r"geek", re.IGNORECASE)
+
+# Use the compiled pattern to search for both 'apple' and 'APPLE'
+result = pattern.search("I am a GEEK")
+
+if result:
+    print(result.group())
+
+
+# Compile the pattern to match a word 'geek'
+pattern = re.compile(r"geek")
+
+# Use the compiled pattern to search in a string
+result = pattern.search("I am a geek")
+
+if result:
+    print(result.group())
+
+#Analyze the .txt file
+import re
+
+with open("miracle_in_the_andes.txt", encoding = "UTF-8") as file:
+    book = file.read()
+    print(book)
+
+pattern = re.compile("Chapter [0-9]+") #Specify what to search for.
+len(re.findall(pattern, book)) #Check how many "Chapter"s are in the variable book
+
+#How many sentences contain the word "love"?
+
+sentences = re.split(r"[.!?]", book)
+pattern = re.compile(r"\blove\b", re.IGNORECASE)
+
+count = 0
+
+for sentence in sentences:
+    if pattern.search(sentence):
+        count += 1
+
+print(count) #71
+
+#Web scraping
+
+import requests
+import selectorlib #scraping
+
+
+#Access the link as a legit user-agent
+url = "https://programmer100.pythonanywhere.com/tours/"
+HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) '
+                  'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
+
+#Scrape the data
+def scrape(url):
+    response = requests.get(url, HEADERS).text
+    return response
+
+#Print out the results
+print(scrape(url))
