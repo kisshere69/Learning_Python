@@ -1,1 +1,6 @@
-Feng Suave, Minimalia City, 5.5.2089
+date,temperature
+2025/12/14 14:42:44 None
+2025/12/14 14:45:37 None
+2025/12/14 14:47:36 None
+2025/12/14 14:47:40 None
+2025/12/14 14:47:47 19
