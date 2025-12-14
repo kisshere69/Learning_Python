@@ -1,0 +1,14 @@
+{
+    "IT": {
+        "employees": 3,
+        "average_salary": 5066.67
+    },
+    "HR": {
+        "employees": 1,
+        "average_salary": 3500.0
+    },
+    "Sales": {
+        "employees": 2,
+        "average_salary": 2722.0
+    }
+}

@@ -1,0 +1,13 @@
+1. Read CSV
+2. Retain only employees with valid salaries
+3. Delete records:
+   - without name
+   - with invalid salaries
+4. Calculate the average salary by department
+5. Save the result in clean_employees.json
+
+Hints:
+Any field usually are:
+    empty
+    string instead of a number
+    garbage
