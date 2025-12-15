@@ -4,7 +4,7 @@
    - without name
    - with invalid salaries
 4. Calculate the average salary by department
-5. Save the result in clean_employees.json
+5. Save the result in JSON and CSV files
 
 Hints:
 Any field usually are:

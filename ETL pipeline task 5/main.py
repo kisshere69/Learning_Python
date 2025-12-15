@@ -23,7 +23,7 @@ with open("employees.csv", newline="", encoding="utf-8") as csvfile:
         except (ValueError, TypeError):
             continue
 
-        # Initialize department if not exists
+        # Initialize department if not exists. Department ("IT") = key; salary and count = values.
         if department not in departments:
             departments[department] = {
                 "total_salary": 0,
@@ -36,20 +36,42 @@ with open("employees.csv", newline="", encoding="utf-8") as csvfile:
 
 # ----------------- LOAD -----------------
 
-
-# Prepare final result
 result = {}
+final_result = []
 
+#Obtain pairs of items from departments{}. Department = key; data = value.
 for department, data in departments.items():
     avg_salary = round(data["total_salary"] / data["count"], 2)
 
+#Write new fields in a new dictionary result{}
     result[department] = {
-        "employees": data["count"],
+        "employees_count": data["count"],
         "average_salary": avg_salary
     }
+
+#Calculate the average salary to write it in a CSV file
+for department, stats in departments.items():
+    average_salary = stats["total_salary"] / stats["count"]
+
+    final_result.append({
+    "department": department,
+    "average_salary": round(average_salary, 2),
+    "employees": stats["count"]
+    })
 
 # Save result to JSON
 with open("clean_employees.json", "w", encoding="utf-8") as jsonfile:
     json.dump(result, jsonfile, indent=4)
 
 print("ETL process completed successfully! Check the file.")
+
+
+# Save result to CSV
+with open("department_salary_summary.csv", "w", newline="", encoding="utf-8") as file:
+    writer = csv.DictWriter(
+        file,
+        fieldnames=["department", "average_salary", "employees"]
+    )
+
+    writer.writeheader()
+    writer.writerows(final_result)
