@@ -29,3 +29,6 @@ def write(extracted):
 scraped = scrape(url)
 extracted = extract(scraped)
 write(extracted)
+
+print("Data scraped and saved. "
+      "Check the file 'data.txt' to see what happened.")
