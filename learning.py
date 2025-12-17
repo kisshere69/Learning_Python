@@ -542,7 +542,7 @@ for sentence in sentences:
 
 print(count) #71
 
-#Web scraping
+#Web scraping. Every function is categorized as object, or class.
 
 import requests
 import selectorlib #scraping
@@ -561,3 +561,24 @@ def scrape(url):
 
 #Print out the results
 print(scrape(url))
+
+#Classes
+
+#Define a class
+class Event:
+    def scrape(self, url):
+        """Scrape the page source from the URL"""
+        response = requests.get(url, headers=HEADERS)
+        source = response.text
+        return source
+
+    def extract(self, source):
+        extractor = selectorlib.Extractor.from_yaml_file("extract.yaml")
+        value = extractor.extract(source)["tours"]
+        return value
+
+
+#Call classes as functions:
+event = Event()
+scraped = event.scrape(url)
+extracted = event.extract(scraped)
