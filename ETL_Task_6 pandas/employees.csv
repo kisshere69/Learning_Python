@@ -1,0 +1,7 @@
+id,name,department,salary,age
+1,Alice,IT,4200,29
+2,Bob,HR,,35
+3,,IT,3900,28
+4,David,Finance,5100,
+5,Eva,HR,4700,31
+6,Frank,IT,4200,40

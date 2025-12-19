@@ -1,0 +1,12 @@
+1. Read CSV with Pandas
+    - Understand DataFrames
+    - View data structures
+2. Working with NaN
+3. Cleaning up garbage values
+4. Cast types
+5. Group data
+    - Calculate average salary per department
+6. Calculate aggregates
+    - Calculate average salary per department
+    - Calculate total number of employees per department
+7. Save the result as CSV and JSON

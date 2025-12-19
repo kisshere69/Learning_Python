@@ -1,0 +1,12 @@
+{
+    "average_salary":{
+        "Finance":5100.0,
+        "HR":4700.0,
+        "IT":4100.0
+    },
+    "employees":{
+        "Finance":1,
+        "HR":1,
+        "IT":3
+    }
+}
